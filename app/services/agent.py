@@ -108,34 +108,7 @@ ESTILO DE COMUNICACIÓN COMERCIAL 🗣️
 PROTOCOLO DE RESPUESTAS 📋
 =========================
 
-**SIEMPRE INCLUIR:**
-1. **Recomendación específica** con modelo/marca
-2. **Rango de precios** actualizado
-3. **Justificación** de por qué esa opción
-4. **Alternativas** para diferentes presupuestos
-5. **Promociones aplicables** actuales
-
-**INFORMACIÓN BÁSICA PERMITIDA (solo lo esencial):**
-- **Cinturones**: Secuencia de colores básica (blanco→amarillo→verde→azul→rojo→negro)
-- **Términos básicos**: Dobok (uniforme), Ti (cinturón), sparring (combate)
-- **Niveles**: Principiante, intermedio, avanzado, competidor
-- **Edades**: Categorías básicas para recomendaciones de productos
-
-
-**NUNCA ENTRAR EN DETALLES DE:**
-- Historia del Taekwondo
-- Técnicas específicas o filosofía
-- Entrenamiento o metodologías
-- Competiciones o reglas deportivas
-- Aspectos culturales o tradicionales
-
-**SIEMPRE REDIRIGIR A PRODUCTOS:**
-Si preguntan sobre historia/técnicas/filosofía, responder:
-"🛍️ Soy especialista en productos de Taekwondo. ¿Te puedo ayudar a encontrar el equipamiento perfecto para tu práctica? Cuéntame tu nivel y qué necesitas."
-
----
-
-**RECUERDA**: Eres el consultor comercial #1 en productos de Taekwondo. Tu valor está en conocer cada detalle técnico, precio y especificación de equipamiento para ayudar a cada cliente a hacer la compra perfecta para sus necesidades. 🛍️🥋
+(...)
         """.strip()
     
     def _get_product_knowledge(self) -> Dict[str, Any]:
@@ -144,113 +117,19 @@ Si preguntan sobre historia/técnicas/filosofía, responder:
         
         return {
             "doboks": {
-                "principiante": {
-                    "material": "100% Algodón, 240-280 GSM",
-                    "precio": "100.000–180.000 COP",
-                    "caracteristicas": ["Cuello en V tradicional", "Costuras reforzadas", "Fácil lavado"],
-                    "durabilidad": "2-3 años uso regular",
-                    "ideal_para": "Entrenamientos diarios, exámenes de grado",
-                    "tallas": "0 hasta 7"
-                },
-                "competicion": {
-                    "material": "Poliéster-Algodón 65/35, 320-350 GSM",
-                    "precio": "240.000–480.000 COP",
-                    "caracteristicas": ["Corte atlético", "Certificación WTF", "Secado rápido"],
-                    "durabilidad": "3-5 años uso intensivo",
-                    "ideal_para": "Torneos oficiales, sparring avanzado"
-                },
-                "premium": {
-                    "material": "Algodón premium/Bambú, 400+ GSM",
-                    "precio": "400.000–1.000.000 COP",
-                    "caracteristicas": ["Bordados personalizados", "Acabados de lujo", "Máxima durabilidad"],
-                    "ideal_para": "Maestros, ceremonias, representación oficial"
-                }
+                
             },
             "protecciones": {
-                "basicas": {
-                    "productos": ["Bucal", "Coquilla", "Espinilleras"],
-                    "precio_total": "160.000–320.000 COP",
-                    "ideal_para": "Principiantes, sparring ligero"
-                },
-                "intermedias": {
-                    "productos": ["Básicas + Peto + Antebrazos"],
-                    "precio_total": "480.000–800.000 COP",
-                    "ideal_para": "Sparring regular, cinturones intermedios"
-                },
-                "completas": {
-                    "productos": ["Intermedias + Casco + Guantes"],
-                    "precio_total": "800.000–1.600.000 COP",
-                    "ideal_para": "Competición, sparring intensivo"
-                },
-                "electronicas": {
-                    "productos": ["Peto + Casco electrónicos WTF"],
-                    "precio_total": "2.000.000–4.000.000 COP",
-                    "ideal_para": "Competiciones oficiales WTF"
-                }
+                
             },
             "cinturones": {
-                "blanco": {
-                    "material": "Algodón 100%",
-                    "precio": "32.000 – 50.000 COP",
-                    "descripcion": "Primer nivel, ideal para principiantes."
-                },
-                "amarillo": {
-                    "material": "Algodón 100%",
-                    "precio": "40.000 – 60.000 COP",
-                    "descripcion": "Segundo nivel, simboliza el inicio del aprendizaje."
-                },
-                "verde": {
-                    "material": "Algodón premium",
-                    "precio": "60.000 – 80.000 COP",
-                    "descripcion": "Nivel intermedio, crecimiento y desarrollo."
-                },
-                "azul": {
-                    "material": "Algodón premium",
-                    "precio": "80.000 – 100.000 COP",
-                    "descripcion": "Nivel intermedio-avanzado, simboliza el cielo."
-                },
-                "rojo": {
-                    "material": "Algodón premium",
-                    "precio": "100.000 – 140.000 COP",
-                    "descripcion": "Nivel avanzado, representa precaución y preparación."
-                },
-                "negro": {
-                    "material": "Seda o algodón premium",
-                    "precio": "150.000 – 240.000 COP",
-                    "descripcion": "Máximo nivel, simboliza maestría y experiencia.",
-                    "personalizacion": "Puede incluir bordados con nombre, escuela o grado"
-                }
+                
             },
             "accesorios": {
-                "training": {
-                    "paos": "120.000–320.000 COP por par",
-                    "sacos": "400.000–1.200.000 COP",
-                    "bandas_elasticas": "60.000–160.000 COP"
-                },
-                "transporte": {
-                    "bolsas_dobok": "80.000–160.000 COP",
-                    "mochilas_gear": "160.000–320.000 COP",
-                    "maletas_competicion": "320.000–600.000 COP"
-                }
+                
             },
             "promociones_activas": {
-                "pack_inicio": {
-                    "contenido": "Dobok + cinturón + protecciones básicas",
-                    "precio_individual": "480.000 COP",
-                    "precio_pack": "336.000 COP",
-                    "descuento": "30%"
-                },
-                "pack_competidor": {
-                    "contenido": "Dobok WTF + protecciones completas + bolsa",
-                    "precio_individual": "1.600.000 COP", 
-                    "precio_pack": "1.200.000 COP",
-                    "descuento": "25%"
-                },
-                "descuentos_volumen": {
-                    "10_productos": "15% OFF",
-                    "20_productos": "20% OFF",
-                    "50_productos": "25% OFF + envío gratis"
-                }
+                
             }
         }
     
@@ -261,18 +140,7 @@ Si preguntan sobre historia/técnicas/filosofía, responder:
         message_lower = message.lower()
         
         intents = {
-            "greeting": ["hola", "hello", "hi", "buenas", "saludos"],
-            "dobok_inquiry": ["dobok", "uniforme", "traje", "kimono"],
-            "protection_inquiry": ["proteccion", "protector", "casco", "peto", "espinilleras"],
-            "belt_inquiry": ["cinturon", "cinta", "ti"],
-            "price_inquiry": ["precio", "costo", "vale", "cuanto", "barato", "caro"],
-            "size_inquiry": ["talla", "medida", "tamaño", "size"],
-            "promotion_inquiry": ["promocion", "descuento", "oferta", "rebaja", "barato"],
-            "recommendation": ["recomienda", "sugiere", "necesito", "busco", "quiero"],
-            "comparison": ["diferencia", "comparar", "mejor", "vs", "versus"],
-            "beginner_gear": ["empezar", "principiante", "comenzar", "nuevo", "inicio"],
-            "competition_gear": ["competir", "torneo", "competicion", "wtf", "oficial"],
-            "purchase": ["comprar", "adquirir", "conseguir", "donde"]
+            
         }
         
         detected_intents = []
@@ -362,12 +230,7 @@ Si preguntan sobre historia/técnicas/filosofía, responder:
         
         # Instrucciones específicas según intención
         commercial_instructions = {
-            "dobok_inquiry": "ENFOQUE: Recomienda doboks específicos con precios, tallas y características técnicas.",
-            "protection_inquiry": "ENFOQUE: Especifica protecciones necesarias según nivel, con precios y comparaciones.",
-            "price_inquiry": "ENFOQUE: Proporciona rangos de precios detallados y opciones para diferentes presupuestos.",
-            "promotion_inquiry": "ENFOQUE: Destaca promociones actuales, packs disponibles y formas de ahorrar.",
-            "recommendation": "ENFOQUE: Haz recomendaciones personalizadas basadas en necesidades y presupuesto.",
-            "beginner_gear": "ENFOQUE: Pack de inicio completo con presupuesto mínimo y productos esenciales."
+            
         }
         
         primary_intent = intent_analysis.get('primary_intent') if intent_analysis else None
@@ -412,17 +275,7 @@ Si preguntan sobre historia/técnicas/filosofía, responder:
         if primary_intent == "greeting":
             return """🛍️ ¡Hola! Soy **BaekhoBot**, tu especialista personal en productos de Taekwondo.
 
-**🎯 Te ayudo con:**
-- 🥋 **Doboks**: Desde principiante (100.000 COP) hasta premium (1.000.000 COP)
-- 🛡️ **Protecciones**: Básicas, intermedias y competición
-- 🏷️ **Promociones**: Packs con hasta 30% de descuento
-- 📏 **Tallas**: Guía precisa para todas las edades
-- 💰 **Presupuestos**: Opciones para todos los bolsillos
-
-**🎉 OFERTAS ACTUALES:**
-- Pack Inicio: Dobok + cinturón + protecciones = 336.000 COP (antes 480.000 COP)
-- Pack Competidor: Equipo completo WTF = 1.200.000 COP (antes 1.600.000 COP)
-
+(...)
 ¿Qué necesitas para tu práctica de Taekwondo? 🤔"""
         
         elif primary_intent == "dobok_inquiry":
@@ -476,24 +329,7 @@ Si preguntan sobre historia/técnicas/filosofía, responder:
         else:
             return """🛍️ ¡Hola! Soy **BaekhoBot**, tu especialista en productos de Taekwondo.
 
-**🎯 ¿En qué puedo ayudarte hoy?**
-
-- 🥋 **Doboks**: Desde 100.000 COP (principiante) hasta 1.000.000 COP (premium)
-- 🛡️ **Protecciones**: Sets desde 160.000 COP hasta 4.000.000 COP (electrónicas)
-- 📏 **Tallas**: Guía completa para todas las edades
-- 💰 **Presupuestos**: Opciones para todos los bolsillos
-- 🎉 **Promociones**: Packs con hasta 30% descuento
-
-**🔥 OFERTAS HOY:**
-- Pack Inicio: 336.000 COP (antes 480.000 COP) - ¡Ahorra **144.000 COP**!
-- Pack Competidor: 1.200.000 COP (antes 1.600.000 COP) - ¡Ahorra **400.000 COP**!
-
-Solo dime:
-- ¿Qué tipo de producto buscas?
-- ¿Cuál es tu nivel?
-- ¿Cuál es tu presupuesto aproximado?
-
-¡Y te daré la recomendación perfecta! 🎯"""
+(...)"""
     
     def _post_process_commercial_response(self, response: str, intent_analysis: Dict[str, Any]) -> str:
         
@@ -505,11 +341,7 @@ Solo dime:
         
         # Añadir llamadas a la acción comerciales
         commercial_ctas = {
-            "dobok_inquiry": "\n\n¿Cuál dobok se ajusta mejor a tu nivel y presupuesto? 🤔",
-            "protection_inquiry": "\n\n¿Para qué tipo de entrenamiento necesitas las protecciones? 🛡️",
-            "price_inquiry": "\n\n¿Cuál es tu rango de presupuesto preferido? 💰",
-            "promotion_inquiry": "\n\n¿Te interesa algún pack en particular? ¡Puedo personalizar una oferta! 🎁",
-            "recommendation": "\n\n¡Cuéntame más detalles para darte la mejor recomendación! 📋"
+            
         }
         
         primary_intent = intent_analysis.get('primary_intent', 'general')
@@ -524,18 +356,6 @@ Solo dime:
         
         return """🛍️ ¡Ups! Pequeño problema técnico en nuestro sistema de productos...
 
-Mientras se resuelve, puedo ayudarte con información básica:
-
-**🎯 PRODUCTOS DISPONIBLES:**
-- 🥋 Doboks: 100.000 – 1.000.000 COP
-- 🛡️ Protecciones: 160.000 – 4.000.000 COP 
-- 🏅 Cinturones: 32.000 – 240.000 COP
-- 🥊 Accesorios: 60.000 – 1.200.000 COP
-
-**🎉 PROMOCIONES ACTIVAS:**
-- Pack Inicio: 336.000 COP (ahorra 144.000 COP)
-- Pack Competidor: 1.200.000 COP (ahorra 400.000 COP)
-
 ¡Intenta tu consulta de nuevo en unos segundos! Estoy ansioso por ayudarte a encontrar el equipamiento perfecto. 🎒✨"""
     
     def get_model_info(self) -> dict:
@@ -548,26 +368,11 @@ Mientras se resuelve, puedo ayudarte con información básica:
             "openai_configured": bool(self.openai_client),
             "model": "gpt-4o-mini" if self.primary_provider == "openai" else "unknown",
             "commercial_capabilities": {
-                "product_catalog": True,
-                "price_comparisons": True,
-                "size_guidance": True,
-                "promotion_tracking": True,
-                "purchase_recommendations": True,
-                "budget_optimization": True
+            
             },
-            "product_categories": [
-                "Doboks (uniformes)",
-                "Protecciones completas", 
-                "Cinturones y accesorios",
-                "Equipos de entrenamiento",
-                "Gear de competición",
-                "Packs promocionales"
-            ],
+            
             "price_ranges": {
-                "doboks": "100.000–1.000.000 COP",
-                "protecciones": "160.000–4.000.000 COP",
-                "cinturones": "32.000–240.000 COP",
-                "accesorios": "60.000–1.200.000 COP"
+            
             }
         }
     
@@ -579,20 +384,7 @@ Mientras se resuelve, puedo ayudarte con información básica:
         # Recomendaciones de productos específicas basadas en parámetros comerciales
         
         recommendation_prompt = f"""
-CONSULTA DE RECOMENDACIÓN COMERCIAL:
-
-Consulta: {user_query}
-Nivel: {user_level if user_level else "No especificado"}  
-Presupuesto: {budget if budget else "No especificado"}
-
-INSTRUCCIONES:
-1. Recomienda productos específicos con precios exactos
-2. Incluye alternativas para diferentes presupuestos
-3. Menciona promociones y descuentos aplicables
-4. Proporciona justificación comercial de cada recomendación
-5. Incluye información de tallas si es relevante
-
-ENFOQUE: Puramente comercial y de productos, no técnico ni deportivo.
+(...)
         """
         
         return await self.process_message(recommendation_prompt)
@@ -602,19 +394,7 @@ ENFOQUE: Puramente comercial y de productos, no técnico ni deportivo.
         # Comparación detallada entre productos similares
         
         comparison_prompt = f"""
-SOLICITUD DE COMPARACIÓN DE PRODUCTOS:
-
-Tipo de producto: {product_type}
-Criterio de comparación: {comparison_criteria}
-
-INCLUIR:
-1. Tabla comparativa con precios
-2. Ventajas y desventajas de cada opción  
-3. Recomendación según presupuesto
-4. Promociones aplicables a cada producto
-5. Mejor relación calidad-precio
-
-ENFOQUE: Comparación comercial pura para facilitar decisión de compra.
+(...)
         """
         return await self.process_message(comparison_prompt)
 
@@ -672,11 +452,7 @@ class AgentService:
 
     async def _generate_response(self, query: str, context: str, user_id: str) -> str:
         system_prompt = """
-        Eres BaekhoBot 🥋, asistente comercial especializado en productos de Taekwondo.
-        Tu objetivo es ayudar a los clientes a encontrar el equipamiento perfecto.
-        - Sé claro y conciso
-        - Incluye precios y categorías
-        - Usa tono amigable y profesional
+        (...)
         """
 
         user_prompt = f"""

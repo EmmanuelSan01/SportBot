@@ -9,13 +9,8 @@ from openai import AsyncOpenAI
 
 logger = logging.getLogger(__name__)
 
-# ==============================
-# Clase 1: Agente Hardcoded
-# ==============================
 class TaekwondoAgent:
-    
-    # Agente especializado en productos de Taekwondo 
-    
+       
     def __init__(self):
         self.openai_client = None
         
@@ -33,17 +28,13 @@ class TaekwondoAgent:
         self.system_prompt = self._build_system_prompt()
         self.product_knowledge = self._get_product_knowledge()
         
-    def _build_system_prompt(self) -> str:
-        
-        # Prompt especializado exclusivamente en productos de Taekwondo
-        
+    def _build_system_prompt(self) -> str:        
+       
         return """
 (...)
         """.strip()
     
-    def _get_product_knowledge(self) -> Dict[str, Any]:
-        
-        # Base de conocimiento especializada en productos
+    def _get_product_knowledge(self) -> Dict[str, Any]:        
         
         return {
             "doboks": {
@@ -64,9 +55,7 @@ class TaekwondoAgent:
         }
     
     def _detect_user_intent(self, message: str) -> Dict[str, Any]:
-        
-        # Detecta intenciones comerciales y de productos específicamente
-        
+
         message_lower = message.lower()
         
         intents = {
@@ -90,9 +79,7 @@ class TaekwondoAgent:
         }
     
     def _classify_message_type(self, message: str) -> str:
-        
-        # Clasifica mensajes para respuestas comerciales apropiadas
-        
+               
         if any(word in message for word in ["?", "que", "como", "donde", "cuando", "cuanto"]):
             return "question"
         elif any(word in message for word in ["quiero", "necesito", "busco", "me interesa"]):
@@ -111,24 +98,19 @@ class TaekwondoAgent:
         context: Optional[str] = None,
         chat_history: List[Dict[str, str]] = None
     ) -> str:
-        
-        # Procesa mensajes con enfoque exclusivo en productos
-        
+               
         try:
-            # Analizar intención comercial
             intent_analysis = self._detect_user_intent(message)
             
-            # Construir prompt comercial especializado
             commercial_prompt = self._build_commercial_prompt(
                 message, user_info, intent_analysis
             )
             
-            # Procesar con LLM o usar respuestas especializadas
             if self.primary_provider == "openai" and self.openai_client:
                 response = await self._process_with_openai(commercial_prompt, intent_analysis)
             else:
                 response = self._get_product_focused_fallback(message, intent_analysis)
-            # Post-procesar para enfoque comercial
+            
             return self._post_process_commercial_response(response, intent_analysis)
                 
         except Exception as e:
@@ -144,21 +126,17 @@ class TaekwondoAgent:
         
         prompt_parts = []
         
-        # Contexto comercial
         prompt_parts.append("CONSULTA COMERCIAL DE PRODUCTOS DE TAEKWONDO")
         
         if intent_analysis:
             prompt_parts.append(f"INTENCIÓN: {intent_analysis['primary_intent']}")
             prompt_parts.append(f"TIPO: {intent_analysis['message_type']}")
-        
-        # Información del cliente para personalizar recomendaciones
+    
         if user_info:
             prompt_parts.append(f"CLIENTE: {user_info.get('first_name', 'Usuario')}")
         
-        # Mensaje del cliente
         prompt_parts.append(f"CONSULTA: {message}")
         
-        # Instrucciones específicas según intención
         commercial_instructions = {
             
         }
@@ -197,8 +175,6 @@ class TaekwondoAgent:
     
     def _get_product_focused_fallback(self, message: str, intent_analysis: Dict[str, Any]) -> str:
         
-        # Respuestas fallback especializadas en productos únicamente
-        
         primary_intent = intent_analysis.get('primary_intent', 'general')
         message_lower = message.lower()
         
@@ -208,54 +184,6 @@ class TaekwondoAgent:
 (...)
 ¿Qué necesitas para tu práctica de Taekwondo? 🤔"""
         
-        elif primary_intent == "dobok_inquiry":
-            return """🥋 **DOBOKS DISPONIBLES - CATÁLOGO COMPLETO**
-
-(...)
-¿Cuál es tu nivel y qué tipo de uso le darás? Te recomiendo la opción perfecta. 🎯"""
-        
-        elif primary_intent == "protection_inquiry":
-            return """🛡️ **PROTECCIONES COMPLETAS - GUÍA ESPECIALIZADA**
-
-(...)
-¿Para qué tipo de entrenamiento necesitas protección? 🤔"""
-        
-        elif primary_intent == "price_inquiry":
-            return """💰 **GUÍA COMPLETA DE PRECIOS - TAEKWONDO GEAR**
-
-(...)
-¿Cuál es tu presupuesto aproximado? Te armo la mejor combinación. 🎯"""
-        
-        elif primary_intent == "promotion_inquiry":
-            return """🎉 **PROMOCIONES ESPECIALES ACTIVAS**
-
-(...)
-¿Cuál promoción te interesa más? 🛒"""
-        
-        elif primary_intent == "recommendation":
-            return """🎯 **RECOMENDACIONES PERSONALIZADAS**
-
-(...)
-¡Cuéntame más detalles y te doy la recomendación perfecta! 📋"""
-        
-        elif primary_intent == "size_inquiry":
-            return """📏 **GUÍA COMPLETA DE TALLAS - TODAS LAS CATEGORÍAS**
-
-(...)
-¿Necesitas ayuda midiendo alguna talla específica? 📋"""
-        
-        elif primary_intent == "beginner_gear":
-            return """🌱 **PACK COMPLETO PARA PRINCIPIANTES**
-
-(...)
-¿Cuántos años tienes y cuál es tu presupuesto inicial? Te armo el pack perfecto. 🎒"""
-        
-        elif primary_intent == "competition_gear":
-            return """🏆 **EQUIPAMIENTO PARA COMPETICIÓN OFICIAL**
-
-(...)
-¿En qué nivel vas a competir? Te armo el paquete exacto que necesitas. 🥇"""
-
         else:
             return """🛍️ ¡Hola! Soy **BaekhoBot**, tu especialista en productos de Taekwondo.
 
@@ -263,13 +191,9 @@ class TaekwondoAgent:
     
     def _post_process_commercial_response(self, response: str, intent_analysis: Dict[str, Any]) -> str:
         
-        # Post-proceso de respuestas para mantener enfoque comercial
-        
-        # Asegurar emojis comerciales apropiados
         if not any(emoji in response for emoji in ["🛍️", "💰", "🎯", "📏", "🎉"]):
             response = "🛍️ " + response
         
-        # Añadir llamadas a la acción comerciales
         commercial_ctas = {
             
         }
@@ -281,16 +205,12 @@ class TaekwondoAgent:
         return response.strip()
     
     def _get_commercial_error_response(self) -> str:
-        
-        # Respuesta de error manteniendo enfoque comercial
-        
+               
         return """🛍️ ¡Ups! Pequeño problema técnico en nuestro sistema de productos...
 
 ¡Intenta tu consulta de nuevo en unos segundos! Estoy ansioso por ayudarte a encontrar el equipamiento perfecto. 🎒✨"""
     
     def get_model_info(self) -> dict:
-        
-        # Información del modelo enfocada en capacidades comerciales
         
         return {
             "provider": self.primary_provider,
@@ -311,8 +231,6 @@ class TaekwondoAgent:
     
     async def get_product_recommendations(self, user_query: str, user_level: str = "", budget: str = "") -> str:
         
-        # Recomendaciones de productos específicas basadas en parámetros comerciales
-        
         recommendation_prompt = f"""
 (...)
         """
@@ -321,32 +239,22 @@ class TaekwondoAgent:
     
     async def compare_products(self, product_type: str, comparison_criteria: str = "price") -> str:
         
-        # Comparación detallada entre productos similares
         
         comparison_prompt = f"""
 (...)
         """
         return await self.process_message(comparison_prompt)
 
-# ==============================
-# Clase 2: Agente RAG (Qdrant)
-# ==============================
-
 class AgentService:
     def __init__(self):
-        # ... (other initializations) ...
         self.qdrant_service = QdrantService()
         self.embedding_service = EmbeddingService()
         self.openai_client = AsyncOpenAI(api_key=Config.OPENAI_API_KEY)
 
     async def process_query(self, query: str, user_id: str, context: Optional[Dict] = None) -> str:
-        """
-        Procesa una consulta del usuario usando RAG (Qdrant + embeddings)
-        """
         try:
             query_embedding = await self.embedding_service.generate_embedding(query)
 
-            # Remove 'await' here because search_similar() returns a list, not a coroutine.
             relevant_docs = self.qdrant_service.search_similar(
                 query_embedding,
                 limit=5
@@ -405,8 +313,8 @@ class AgentService:
 
             return {
                 "reply": response.choices[0].message.content.strip(),
-                "sources": [], # You can populate this with relevant info from context
-                "relevance_score": 0.0 # You can calculate this based on the search
+                "sources": [],
+                "relevance_score": 0.0
             }
 
         except Exception as e:
@@ -448,24 +356,14 @@ class AgentService:
             logger.error(f"Error getting product recommendations: {str(e)}")
             return []
 
-
-# ==============================
-# Clase 3: Orquestador
-# ==============================
-
 class BaekhoAgent:
-    """
-    Orquesta entre el agente RAG (dinámico) y el agente hardcoded (fallback).
-    """
     def __init__(self):
         self.rag_agent = AgentService()
         self.hardcoded_agent = TaekwondoAgent()
 
     async def process_message(self, message: str, user_info: Dict[str, Any] = None) -> str:
-        # 1️⃣ Intentamos primero con RAG (Qdrant)
         response = await self.rag_agent.process_query(message, user_info.get("id", "anonimo"))
 
-        # 2️⃣ Si RAG no devuelve nada, usamos fallback hardcoded
         if not response:
             logger.info("⚠️ Usando fallback hardcoded de TaekwondoAgent")
             response = await self.hardcoded_agent.process_message(message, user_info)
